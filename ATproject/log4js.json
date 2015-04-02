@@ -1,0 +1,27 @@
+{
+"appenders": [  
+  { 
+    "type": "console"
+  }, 
+
+  {  
+    "type": "dateFile",  
+    "filename": "logs/log",  
+    "pattern": "-yyyy-MM-dd.log",  
+    "alwaysIncludePattern": true,  
+    "backups": 4
+  },
+
+  {
+    "type": "logLevelFilter",
+    "level": "ERROR",
+    "appender": {
+      "type": "file",  
+      "filename": "logs/log-error.log",
+      "alwaysIncludePattern": false,  
+      "backups": 4
+    }
+  }],
+  "catalog": "logger",
+  "replaceConsole": true  
+}

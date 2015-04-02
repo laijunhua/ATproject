@@ -1,0 +1,2 @@
+D:\ANDY\ATproject\ATproject\ATproject\bin\Microsoft.NodejsTools.WebRole.dll
+D:\ANDY\ATproject\ATproject\ATproject\obj\Debug\ATproject.njsprojResolveAssemblyReference.cache

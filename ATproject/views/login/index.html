@@ -1,0 +1,176 @@
+@{title("Login")}
+@{layout("~layout")}
+@{css("view/login.css")}
+
+
+<!-- BEGIN LOGO -->
+<div class="logo">
+	@{image('logo-big.png')}
+</div>
+<!-- END LOGO -->
+<!-- BEGIN LOGIN -->
+<div class="content">
+	<!-- BEGIN LOGIN FORM -->
+	<form class="form-vertical login-form">
+		<h3 class="form-title">登陆</h3>
+		<div class="alert alert-error hide">
+			<span class="alert-text">Error</span>
+		</div>
+		<div class="control-group">
+			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+			<label class="control-label visible-ie8 visible-ie9">邮箱地址</label>
+			<div class="controls">
+				<div class="input-icon left">
+					<i class="icon-envelope"></i>
+					<input class="m-wrap placeholder-no-fix" type="text" placeholder="邮箱地址" name="account"/>
+				</div>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label visible-ie8 visible-ie9">密码</label>
+			<div class="controls">
+				<div class="input-icon left">
+					<i class="icon-lock"></i>
+					<input class="m-wrap placeholder-no-fix" type="password" placeholder="密码" name="password"/>
+				</div>
+			</div>
+		</div>
+		<div class="form-actions">
+			<label class="checkbox">
+			<input type="checkbox" name="remember" value="1"/> 记住我
+			</label>
+			<button type="submit" class="btn green pull-right">
+				登陆 <i class="m-icon-swapright m-icon-white"></i>
+			</button>            
+		</div>
+		<div class="forget-password">
+			<h4>忘记密码？</h4>
+			<p>
+				点击 <a href="javascript:;" class="" id="forget-password">此处</a>
+				 重设密码。
+			</p>
+		</div>
+		<div class="create-account">
+			<p>
+				现在还没有帐户?&nbsp; 
+				<a href="javascript:;" id="register-btn" class="">创建帐户</a>
+			</p>
+		</div>
+	</form>
+	<!-- END LOGIN FORM -->        
+	<!-- BEGIN FORGOT PASSWORD FORM -->
+	<form class="form-vertical forget-form">
+		<h3 class="">忘记密码 ?</h3>
+
+		<div class="alert alert-error hide">
+			<span class="alert-text"></span>
+		</div>
+
+		<p>重设邮件将发送到到下面的地址：</p>
+		<div class="control-group">
+			<div class="controls">
+				<div class="input-icon left">
+					<i class="icon-envelope"></i>
+					<input class="m-wrap placeholder-no-fix" type="text" placeholder="Email" name="account" />
+				</div>
+			</div>
+		</div>
+		<div class="form-actions">
+			<button type="button" id="back-btn" class="btn">
+			<i class="m-icon-swapleft"></i> 后退
+			</button>
+			<button type="submit" id="submit-btn" class="btn green pull-right">
+			发送邮件 <i class="m-icon-swapright m-icon-white"></i>
+			</button>            
+		</div>
+	</form>
+	<!-- END FORGOT PASSWORD FORM -->
+	<!-- BEGIN REGISTRATION FORM -->
+	<form class="form-vertical register-form">
+		<h3 class="">创建帐户</h3>			
+		<div class="alert alert-error hide">
+			<span class="alert-text"></span>
+		</div>
+		<p>在下面填写帐户信息:</p>
+		<div class="control-group">
+			<label class="control-label visible-ie8 visible-ie9">邮箱地址</label>
+			<div class="controls">
+				<div class="input-icon left">
+					<i class="icon-envelope"></i>
+					<input class="m-wrap placeholder-no-fix" type="text" placeholder="邮箱地址" name="account"/>
+				</div>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label visible-ie8 visible-ie9">密码</label>
+			<div class="controls">
+				<div class="input-icon left">
+					<i class="icon-lock"></i>
+					<input class="m-wrap placeholder-no-fix" type="password" id="register_password" placeholder="密码" name="password"/>
+				</div>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label visible-ie8 visible-ie9">确认密码</label>
+			<div class="controls">
+				<div class="input-icon left">
+					<i class="icon-ok"></i>
+					<input class="m-wrap placeholder-no-fix" type="password" placeholder="确认密码" name="rpassword"/>
+				</div>
+			</div>
+		</div>
+	    <div class="control-group">
+	        <label class="control-label visible-ie8 visible-ie9">真实姓名</label>
+	        <div class="controls">
+	            <div class="input-icon left">
+	                <i class="icon-user"></i>
+	                <input class="m-wrap placeholder-no-fix" type="text" placeholder="真实姓名" name="trueName"/>
+	            </div>
+	        </div>
+	    </div>
+
+
+		<div class="control-group">
+			<div class="controls">
+				<label class="checkbox">
+				<input id="register-tnc" type="checkbox"/>我同意开发团队拥有最终解释权。</label>
+			</div>
+		</div>			
+		<div class="form-actions">
+			<button id="register-back-btn" type="button" class="btn">
+			<i class="m-icon-swapleft"></i>  后退
+			</button>
+			<button type="submit" id="register-submit-btn" class="btn green pull-right" disabled="disabled">
+			创建帐户 <i class="m-icon-swapright m-icon-white"></i>
+			</button>
+		</div>
+	</form>
+	<!-- END REGISTRATION FORM -->
+</div>
+<!-- END LOGIN -->
+<!-- BEGIN COPYRIGHT -->
+<div class="copyright">
+	2015 &copy; ATproject. Analyze and teaching project.
+</div>
+<!-- END COPYRIGHT -->
+
+
+
+
+@{section run}
+	<!-- RUN -->
+	@{js('vendor/jquery.validate.min.js')}
+	@{js('view/app.js')}
+	@{js('view/login.js')} 
+	<script>
+		jQuery(document).ready(function() {     
+		  App.init();
+		  Login.init();
+		});
+	</script>
+@{end}
+
+
+@{section body-class}
+	class="login"
+@{end}

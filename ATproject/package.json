@@ -1,0 +1,12 @@
+{
+  "name": "ATproject",
+  "version": "0.1.2",
+  "description": "ATproject",
+  "main": "release.js",
+  "dependencies": {
+    "bluebird": "^2.9.13",
+    "log4js": "^0.6.22",
+    "mongoose": "3.8.0",
+    "total.js": "^1.7.3-25"
+  }
+}
