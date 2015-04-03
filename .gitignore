@@ -1,11 +1,12 @@
 mongodb/database/*
 mongodb/log/*
+!/mongodb/database/DONOTDELETE
+!/mongodb/log/DONOTDELETE
+!/mongodb/bin/mongod.exe
 
-logs/*
 
 node_modules
 obj
-bin
 
 
 ## Ignore Visual Studio temporary files, build results, and

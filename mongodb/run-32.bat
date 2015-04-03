@@ -1,2 +1,2 @@
-bin\mongod -f .\mongo.conf
+binary\mongod -f .\mongo.conf
 pause
