@@ -1,10 +1,11 @@
-ATproject/mongodb/database/*
-ATproject/mongodb/log/*
-!ATproject/mongodb/database/DONOTDELETE
-!ATproject/mongodb/log/DONOTDELETE
+mongodb/database/*
+mongodb/log/*
 
-ATproject/node_modules
-ATproject/obj
+logs/*
+
+node_modules
+obj
+bin
 
 
 ## Ignore Visual Studio temporary files, build results, and

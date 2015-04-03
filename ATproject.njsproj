@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>ATproject</Name>
+    <RootNamespace>ATproject</RootNamespace>
+    <ToolsVersionPromptShown>1.4</ToolsVersionPromptShown>
+    <TypeScriptToolsVersion>1.4</TypeScriptToolsVersion>
+    <NodeExeArguments>
+    </NodeExeArguments>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>2340e055-d7d3-4c6f-964d-a7cd93d2f883</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>release.js</StartupFile>
+    <StartWebBrowser>True</StartWebBrowser>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <NodejsPort>1337</NodejsPort>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <EnableTypeScript>true</EnableTypeScript>
+    <StartWebBrowser>True</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="config" />
+    <Content Include="config-debug" />
+    <Content Include="config-release" />
+    <Content Include="config-test" />
+    <Content Include="log4js.json" />
+    <Content Include="node.64.exe" />
+    <Content Include="node.exe" />
+    <Content Include="public\.htaccess" />
+    <Content Include="public\crossdomain.xml" />
+    <Content Include="public\css\vendor\bootstrap-responsive.min.css" />
+    <Content Include="public\css\vendor\bootstrap-responsive1.min.css" />
+    <Content Include="public\css\vendor\bootstrap.min.css" />
+    <Content Include="public\css\vendor\default.css" />
+    <Content Include="public\css\vendor\font-awesome.min.css" />
+    <Content Include="public\css\vendor\jquery-ui-1.10.1.custom.min.css" />
+    <Content Include="public\css\vendor\style-metro.css" />
+    <Content Include="public\css\vendor\style-responsive.css" />
+    <Content Include="public\css\vendor\style.css" />
+    <Content Include="public\css\vendor\uniform.default.css" />
+    <Content Include="public\css\view\login.css" />
+    <Content Include="public\favicon.ico" />
+    <Content Include="public\fonts\fontawesome-webfont.eot" />
+    <Content Include="public\fonts\fontawesome-webfont.svg" />
+    <Content Include="public\fonts\fontawesome-webfont.ttf" />
+    <Content Include="public\fonts\fontawesome-webfont.woff" />
+    <Content Include="public\fonts\FontAwesome.otf" />
+    <Content Include="public\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="public\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="public\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="public\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="public\humans.txt" />
+    <Content Include="public\image\.gitignore" />
+    <Content Include="public\image\1.jpg" />
+    <Content Include="public\image\10.jpg" />
+    <Content Include="public\image\11.jpg" />
+    <Content Include="public\image\2.jpg" />
+    <Content Include="public\image\3.jpg" />
+    <Content Include="public\image\4.jpg" />
+    <Content Include="public\image\5.jpg" />
+    <Content Include="public\image\6.jpg" />
+    <Content Include="public\image\7.jpg" />
+    <Content Include="public\image\8.jpg" />
+    <Content Include="public\image\9.jpg" />
+    <Content Include="public\image\ajax-loading.gif" />
+    <Content Include="public\image\alpha.png" />
+    <Content Include="public\image\amazon.png" />
+    <Content Include="public\image\animated-overlay.gif" />
+    <Content Include="public\image\avatar.png" />
+    <Content Include="public\image\avatar1.jpg" />
+    <Content Include="public\image\avatar1_small.jpg" />
+    <Content Include="public\image\avatar2.jpg" />
+    <Content Include="public\image\avatar3.jpg" />
+    <Content Include="public\image\behance.png" />
+    <Content Include="public\image\bg-input-focus.png" />
+    <Content Include="public\image\bg-input.png" />
+    <Content Include="public\image\bg-opacity.png" />
+    <Content Include="public\image\bg-white-lock.png" />
+    <Content Include="public\image\bg\1.jpg" />
+    <Content Include="public\image\bg\2.jpg" />
+    <Content Include="public\image\bg\3.jpg" />
+    <Content Include="public\image\bg\4.jpg" />
+    <Content Include="public\image\blank.gif" />
+    <Content Include="public\image\blogger.png" />
+    <Content Include="public\image\bstree-halflings.png" />
+    <Content Include="public\image\chosen-sprite.png" />
+    <Content Include="public\image\css" />
+    <Content Include="public\image\datatable-row-openclose.png" />
+    <Content Include="public\image\deviantart.png" />
+    <Content Include="public\image\dribbble.png" />
+    <Content Include="public\image\dropbox.png" />
+    <Content Include="public\image\earth.jpg" />
+    <Content Include="public\image\evernote.png" />
+    <Content Include="public\image\facebook.png" />
+    <Content Include="public\image\fancybox_loading.gif" />
+    <Content Include="public\image\fancybox_overlay.png" />
+    <Content Include="public\image\fancybox_sprite.png" />
+    <Content Include="public\image\favicon.ico" />
+    <Content Include="public\image\fontawesome-webfont.eot" />
+    <Content Include="public\image\fontawesome-webfont.svg" />
+    <Content Include="public\image\fontawesome-webfont.ttf" />
+    <Content Include="public\image\fontawesome-webfont.woff" />
+    <Content Include="public\image\forrst.png" />
+    <Content Include="public\image\github.png" />
+    <Content Include="public\image\glyphicons-halflings-white.png" />
+    <Content Include="public\image\glyphicons-halflings.png" />
+    <Content Include="public\image\glyphicons-regular.eot" />
+    <Content Include="public\image\glyphicons-regular.svg" />
+    <Content Include="public\image\glyphicons-regular.ttf" />
+    <Content Include="public\image\glyphicons-regular.woff" />
+    <Content Include="public\image\glyphicons-white.png" />
+    <Content Include="public\image\glyphicons-white.svg" />
+    <Content Include="public\image\glyphicons.png" />
+    <Content Include="public\image\glyphiconshalflings-regular.eot" />
+    <Content Include="public\image\glyphiconshalflings-regular.svg" />
+    <Content Include="public\image\glyphiconshalflings-regular.ttf" />
+    <Content Include="public\image\glyphiconshalflings-regular.woff" />
+    <Content Include="public\image\glyphicons_halflings-white.png" />
+    <Content Include="public\image\glyphicons_halflings-white.svg" />
+    <Content Include="public\image\glyphicons_halflings.png" />
+    <Content Include="public\image\glyphicons_halflings.svg" />
+    <Content Include="public\image\googleplus.png" />
+    <Content Include="public\image\gritter-brown.png" />
+    <Content Include="public\image\gritter-light.png" />
+    <Content Include="public\image\gritter-purple.png" />
+    <Content Include="public\image\gritter.png" />
+    <Content Include="public\image\hor-menu-search-close-white.png" />
+    <Content Include="public\image\hor-menu-search-close.png" />
+    <Content Include="public\image\hor-menu-search.png" />
+    <Content Include="public\image\hue.png" />
+    <Content Include="public\image\icon-color-close.png" />
+    <Content Include="public\image\icon-color.png" />
+    <Content Include="public\image\icon-img-down.png" />
+    <Content Include="public\image\icon-img-up.png" />
+    <Content Include="public\image\ie-spacer.gif" />
+    <Content Include="public\image\image1.jpg" />
+    <Content Include="public\image\image2.jpg" />
+    <Content Include="public\image\image3.jpg" />
+    <Content Include="public\image\image4.jpg" />
+    <Content Include="public\image\image5.jpg" />
+    <Content Include="public\image\img1.png" />
+    <Content Include="public\image\img1_2.png" />
+    <Content Include="public\image\img2.png" />
+    <Content Include="public\image\img3.png" />
+    <Content Include="public\image\img4.png" />
+    <Content Include="public\image\inbox-nav-arrow-blue.png" />
+    <Content Include="public\image\instagram.png" />
+    <Content Include="public\image\iphone.png" />
+    <Content Include="public\image\item_img.jpg" />
+    <Content Include="public\image\item_img1.jpg" />
+    <Content Include="public\image\jolicloud.png" />
+    <Content Include="public\image\js" />
+    <Content Include="public\image\KwPYo.jpg" />
+    <Content Include="public\image\last-fm.png" />
+    <Content Include="public\image\linkedin.png" />
+    <Content Include="public\image\loading.gif" />
+    <Content Include="public\image\logo-big.png" />
+    <Content Include="public\image\logo.png" />
+    <Content Include="public\image\logo_azteca.jpg" />
+    <Content Include="public\image\logo_conquer.jpg" />
+    <Content Include="public\image\logo_metronic.jpg" />
+    <Content Include="public\image\menu-toggler.png" />
+    <Content Include="public\image\overlay-icon.png" />
+    <Content Include="public\image\photo1.jpg" />
+    <Content Include="public\image\photo2.jpg" />
+    <Content Include="public\image\photo3.jpg" />
+    <Content Include="public\image\photo4.jpg" />
+    <Content Include="public\image\photo5.jpg" />
+    <Content Include="public\image\photo6.jpg" />
+    <Content Include="public\image\picasa.png" />
+    <Content Include="public\image\pintrest.png" />
+    <Content Include="public\image\portlet-collapse-icon-white.png" />
+    <Content Include="public\image\portlet-collapse-icon.png" />
+    <Content Include="public\image\portlet-config-icon-white.png" />
+    <Content Include="public\image\portlet-config-icon.png" />
+    <Content Include="public\image\portlet-expand-icon-white.png" />
+    <Content Include="public\image\portlet-expand-icon.png" />
+    <Content Include="public\image\portlet-reload-icon-white.png" />
+    <Content Include="public\image\portlet-reload-icon.png" />
+    <Content Include="public\image\portlet-remove-icon-white.png" />
+    <Content Include="public\image\portlet-remove-icon.png" />
+    <Content Include="public\image\preview_02.png" />
+    <Content Include="public\image\preview_03.png" />
+    <Content Include="public\image\preview_04.png" />
+    <Content Include="public\image\preview_05.png" />
+    <Content Include="public\image\preview_06.png" />
+    <Content Include="public\image\preview_07.png" />
+    <Content Include="public\image\preview_08.png" />
+    <Content Include="public\image\preview_09.png" />
+    <Content Include="public\image\preview_10.png" />
+    <Content Include="public\image\preview_11.png" />
+    <Content Include="public\image\preview_12.png" />
+    <Content Include="public\image\preview_13.png" />
+    <Content Include="public\image\preview_14.png" />
+    <Content Include="public\image\preview_15.png" />
+    <Content Include="public\image\preview_16.png" />
+    <Content Include="public\image\preview_17.png" />
+    <Content Include="public\image\profile-img.png" />
+    <Content Include="public\image\profile.jpg" />
+    <Content Include="public\image\progressbar.gif" />
+    <Content Include="public\image\remove-icon-small.png" />
+    <Content Include="public\image\rss.png" />
+    <Content Include="public\image\saturation.png" />
+    <Content Include="public\image\search-icon-blue.png" />
+    <Content Include="public\image\search-icon-brown.png" />
+    <Content Include="public\image\search-icon-purple.png" />
+    <Content Include="public\image\search-icon-white.png" />
+    <Content Include="public\image\search-icon.png" />
+    <Content Include="public\image\select2-spinner.gif" />
+    <Content Include="public\image\select2.png" />
+    <Content Include="public\image\select2x2.png" />
+    <Content Include="public\image\sidebar-menu-arrow-green.png" />
+    <Content Include="public\image\sidebar-menu-arrow.png" />
+    <Content Include="public\image\sidebar-search-close-blue.png" />
+    <Content Include="public\image\sidebar-search-close-brown.png" />
+    <Content Include="public\image\sidebar-search-close-light.png" />
+    <Content Include="public\image\sidebar-search-close-purple.png" />
+    <Content Include="public\image\sidebar-search-close.png" />
+    <Content Include="public\image\sidebar-toggler-blue.jpg" />
+    <Content Include="public\image\sidebar-toggler-brown.jpg" />
+    <Content Include="public\image\sidebar-toggler-light.jpg" />
+    <Content Include="public\image\sidebar-toggler-purple.jpg" />
+    <Content Include="public\image\sidebar-toggler.jpg" />
+    <Content Include="public\image\skype.png" />
+    <Content Include="public\image\social_facebook.png" />
+    <Content Include="public\image\social_googleplus.png" />
+    <Content Include="public\image\social_linkedin.png" />
+    <Content Include="public\image\social_rss.png" />
+    <Content Include="public\image\social_twitter.png" />
+    <Content Include="public\image\sort_asc.png" />
+    <Content Include="public\image\sort_asc_disabled.png" />
+    <Content Include="public\image\sort_both.png" />
+    <Content Include="public\image\sort_desc.png" />
+    <Content Include="public\image\sort_desc_disabled.png" />
+    <Content Include="public\image\spotify.png" />
+    <Content Include="public\image\sprite.png" />
+    <Content Include="public\image\spritemap%402x.png" />
+    <Content Include="public\image\spritemap.png" />
+    <Content Include="public\image\stumbleupon.png" />
+    <Content Include="public\image\switch.png" />
+    <Content Include="public\image\syncfusion-icons-white.png" />
+    <Content Include="public\image\syncfusion-icons.png" />
+    <Content Include="public\image\tumblr.png" />
+    <Content Include="public\image\twitter.png" />
+    <Content Include="public\image\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="public\image\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="public\image\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="public\image\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="public\image\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="public\image\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="public\image\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="public\image\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="public\image\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="public\image\ui-icons_222222_256x240.png" />
+    <Content Include="public\image\ui-icons_228ef1_256x240.png" />
+    <Content Include="public\image\ui-icons_888888_256x240.png" />
+    <Content Include="public\image\ui-icons_ef8c08_256x240.png" />
+    <Content Include="public\image\ui-icons_ffd27a_256x240.png" />
+    <Content Include="public\image\ui-icons_ffffff_256x240.png" />
+    <Content Include="public\image\vimeo.png" />
+    <Content Include="public\image\vk.png" />
+    <Content Include="public\image\walmart.png" />
+    <Content Include="public\image\wordpress.png" />
+    <Content Include="public\image\xing.png" />
+    <Content Include="public\image\yahoo.png" />
+    <Content Include="public\image\youtube.png" />
+    <Content Include="public\robots.txt" />
+    <Content Include="resources\default.resource" />
+    <Content Include="run-release.bat" />
+    <Content Include="run.bat" />
+    <Content Include="views\homepage.html" />
+    <Content Include="views\login\index.html" />
+    <Content Include="views\mail-forget.html" />
+    <Content Include="views\layout.html" />
+    <TypeScriptCompile Include="controllers\model\exam.ts" />
+    <TypeScriptCompile Include="controllers\login.ts" />
+    <TypeScriptCompile Include="controllers\default.ts" />
+    <TypeScriptCompile Include="controllers\logout.ts" />
+    <TypeScriptCompile Include="controllers\register.ts" />
+    <TypeScriptCompile Include="models\Analyzer\AnalyzerCache.ts" />
+    <TypeScriptCompile Include="models\Exam\Exam.ts" />
+    <TypeScriptCompile Include="models\Exam\ExamTable.ts" />
+    <TypeScriptCompile Include="models\Exam\ExamTableRow.ts" />
+    <TypeScriptCompile Include="models\Exam\ExamTableColumnMeta.ts" />
+    <TypeScriptCompile Include="models\Student.ts" />
+    <TypeScriptCompile Include="public\js\vendor\server-api.ts" />
+    <TypeScriptCompile Include="Scripts\typings\atproject.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\client\bluebird.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\client\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\log4js\log4js.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\mongoose\mongoose.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\totaljs\nosql.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\totaljs\totaljs.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\node\node.d.ts" />
+    <Content Include="package.json" />
+    <Content Include="README.md" />
+    <TypeScriptCompile Include="source\Analyzer\IAnalyzer.ts" />
+    <TypeScriptCompile Include="source\Analyzer\AnalyzerLoader.ts" />
+    <TypeScriptCompile Include="source\Analyzer\Implement\StudentsOfClass.ts" />
+    <TypeScriptCompile Include="source\Analyzer\Implement\GradePassRateAnalyzer.ts" />
+    <TypeScriptCompile Include="source\Analyzer\Implement\ClassAverageAnalyzer.ts" />
+    <TypeScriptCompile Include="source\Analyzer\ISignature.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="controllers\" />
+    <Folder Include="controllers\model\" />
+    <Folder Include="controllers\analyze\" />
+    <Folder Include="definitions\" />
+    <Folder Include="models\" />
+    <Folder Include="models\Exam\" />
+    <Folder Include="models\Analyzer\" />
+    <Folder Include="modules\" />
+    <Folder Include="public\" />
+    <Folder Include="public\css\" />
+    <Folder Include="public\css\vendor\" />
+    <Folder Include="public\css\view\" />
+    <Folder Include="public\fonts\" />
+    <Folder Include="public\image\" />
+    <Folder Include="public\image\bg\" />
+    <Folder Include="public\js\" />
+    <Folder Include="public\js\vendor\" />
+    <Folder Include="public\js\view\" />
+    <Folder Include="resources\" />
+    <Folder Include="Scripts\" />
+    <Folder Include="Scripts\typings\log4js\" />
+    <Folder Include="Scripts\typings\mongoose\" />
+    <Folder Include="Scripts\typings\client\" />
+    <Folder Include="Scripts\typings\totaljs\" />
+    <Folder Include="Scripts\typings\" />
+    <Folder Include="Scripts\typings\node\" />
+    <Folder Include="source\" />
+    <Folder Include="source\Analyzer\" />
+    <Folder Include="source\Analyzer\Implement\" />
+    <Folder Include="views\" />
+    <Folder Include="views\login\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="controllers\forget.js" />
+    <Compile Include="debug.js" />
+    <Compile Include="definitions\authorization.js" />
+    <Compile Include="definitions\compile.js" />
+    <Compile Include="definitions\initialize.js" />
+    <Compile Include="definitions\log4js.js" />
+    <Compile Include="definitions\mongoose.js" />
+    <Compile Include="definitions\session.js" />
+    <Compile Include="models\User.ts" />
+    <Compile Include="modules\ddos.js" />
+    <Compile Include="modules\session.js" />
+    <Compile Include="modules\webcounter.js" />
+    <Compile Include="public\js\vendor\additional-methods.min.js" />
+    <Compile Include="public\js\vendor\bluebird.js" />
+    <Compile Include="public\js\vendor\bluebird.min.js" />
+    <Compile Include="public\js\vendor\bootstrap-rtl.min.js" />
+    <Compile Include="public\js\vendor\bootstrap.min.js" />
+    <Compile Include="public\js\vendor\breakpoints.min.js" />
+    <Compile Include="public\js\vendor\canvas-to-blob.min.js" />
+    <Compile Include="public\js\vendor\chosen.jquery.min.js" />
+    <Compile Include="public\js\vendor\coming-soon.js" />
+    <Compile Include="public\js\vendor\excanvas.min.js" />
+    <Compile Include="public\js\vendor\fullcalendar.min.js" />
+    <Compile Include="public\js\vendor\jquery-1.10.1.min.js" />
+    <Compile Include="public\js\vendor\jquery-1.8.3.min.js" />
+    <Compile Include="public\js\vendor\jquery-migrate-1.2.1.min.js" />
+    <Compile Include="public\js\vendor\jquery-ui-1.10.1.custom.min.js" />
+    <Compile Include="public\js\vendor\jquery.backstretch.min.js" />
+    <Compile Include="public\js\vendor\jquery.blockui.min.js" />
+    <Compile Include="public\js\vendor\jquery.bootpag.min.js" />
+    <Compile Include="public\js\vendor\jquery.bootstrap.wizard.min.js" />
+    <Compile Include="public\js\vendor\jquery.cookie.min.js" />
+    <Compile Include="public\js\vendor\jquery.dataTables.min.js" />
+    <Compile Include="public\js\vendor\jquery.input-ip-address-control-1.0.min.js" />
+    <Compile Include="public\js\vendor\jquery.inputmask.bundle.min.js" />
+    <Compile Include="public\js\vendor\jquery.pulsate.min.js" />
+    <Compile Include="public\js\vendor\jquery.slimscroll.min.js" />
+    <Compile Include="public\js\vendor\jquery.sparkline.min.js" />
+    <Compile Include="public\js\vendor\jquery.tagsinput.min.js" />
+    <Compile Include="public\js\vendor\jquery.uniform.min.js" />
+    <Compile Include="public\js\vendor\jquery.validate.min.js" />
+    <Compile Include="public\js\vendor\load-image.min.js" />
+    <Compile Include="public\js\vendor\respond.min.js" />
+    <Compile Include="public\js\vendor\select2.min.js" />
+    <Compile Include="public\js\vendor\server-api-example.js" />
+    <Compile Include="public\js\vendor\server.js" />
+    <Compile Include="public\js\vendor\tmpl.min.js" />
+    <Compile Include="public\js\view\app.js" />
+    <Compile Include="public\js\view\login.js" />
+    <Compile Include="release.js" />
+    <Compile Include="source\Analyzer\AnalyzeExecuter.ts" />
+    <Compile Include="source\Analyzer\AnalyzeTask.ts" />
+    <Compile Include="source\Analyzer\Implement\GradeAverageAnalyzer.ts" />
+    <Compile Include="test.js" />
+  </ItemGroup>
+  <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
