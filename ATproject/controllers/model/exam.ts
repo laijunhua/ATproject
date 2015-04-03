@@ -11,9 +11,8 @@ export function install() {
     var self = InputExam.prototype;
 
     framework.route('/model/exam/', self.create, ['xhr', 'put', '*model/exam', 'authorize', '@teacher', '@admin']);
-    framework.route('/model/exam/', self.read, ['get']);
-    //framework.route('/model/exam/', self.read, ['get', '*model/exam-query']);
-    framework.route('/model/exam/{id}', self.readOne, ['get']);
+    framework.route('/model/exam/', self.read, ['xhr', 'get']);
+    framework.route('/model/exam/{id}', self.readOne, ['xhr', 'get', '*model/exam-query']);
     framework.route('/model/exam/{id}', self.update, ['xhr', 'post', '*model/exam', 'authorize', '@teacher', '@admin']);
     framework.route('/model/exam/{id}', self.remove, ['xhr', 'delete', 'authorize', '@teacher', '@admin']);
 }
@@ -48,7 +47,7 @@ class InputExam extends TotalJS.Controller {
 
 
 /*
- * Update Schema
+ * Schema
  */
 var group = SCHEMA('model');
 var examSchema = group.add('exam');
@@ -91,3 +90,6 @@ examSchema.setRemove((error, model, helper, callback) => {
         callback(error, doc);
     });
 });
+
+
+var querySchema = group.add('exam-query');
