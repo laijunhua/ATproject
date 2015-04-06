@@ -34,7 +34,8 @@ class GradePassRateAnalyzer implements IAnalyzer {
         Exam.model
             .findById(signature.examId)
             .populate('mainTable')
-            .exec(exam => {
+            .exec()
+            .then(exam => {
 
                 if (!exam || !exam.mainTable) return callback(data);
 
@@ -43,7 +44,7 @@ class GradePassRateAnalyzer implements IAnalyzer {
                 var count = 0;
 
                 // Pass Rate
-                for (var i = 0; i < exam.mainTable.rows.length; i++) {
+                for (var i = 0, length = exam.mainTable.rows.length; i < length; i++) {
                     var value = exam.mainTable.rows[i].cell[signature.subject];
                     if ('number' === typeof value) {
                         if (value >= passmark) pass_count++;
@@ -51,9 +52,7 @@ class GradePassRateAnalyzer implements IAnalyzer {
                     }
                 }
 
-                if (count === 0) {
-                    data.passrate = 0;
-                } else {
+                if (count !== 0) {
                     data.passrate = pass_count * 100 / count;
                 }
                 callback(data);

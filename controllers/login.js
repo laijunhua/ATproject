@@ -39,8 +39,8 @@ var Login = (function (_super) {
             if (err && err.hasError())
                 return self.json(err);
             // UId
-            var expired = self.body['remember'] ? CONFIG('uid-period-remember') : CONFIG('uid-period-normal');
-            user.makeUId(expired).save();
+            var period = self.body['remember'] ? CONFIG('uid-period-remember') : CONFIG('uid-period-normal');
+            user.makeUId(period).save();
             self.res.cookie(CONFIG('uid-cookie'), user.uId, new Date().add('year', 2), { path: '/login', httponly: true });
             // Login
             self.session.isLogged = true;

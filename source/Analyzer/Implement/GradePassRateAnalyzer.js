@@ -25,13 +25,13 @@ var GradePassRateAnalyzer = (function () {
     GradePassRateAnalyzer.prototype.Exec = function (signature, callback) {
         var data = new GradePassRateData();
         // Table
-        Exam.model.findById(signature.examId).populate('mainTable').exec(function (exam) {
+        Exam.model.findById(signature.examId).populate('mainTable').exec().then(function (exam) {
             if (!exam || !exam.mainTable)
                 return callback(data);
             var passmark = exam.mainTable.findColumnBySubject(signature.subject).passmark;
             var pass_count = 0;
             var count = 0;
-            for (var i = 0; i < exam.mainTable.rows.length; i++) {
+            for (var i = 0, length = exam.mainTable.rows.length; i < length; i++) {
                 var value = exam.mainTable.rows[i].cell[signature.subject];
                 if ('number' === typeof value) {
                     if (value >= passmark)
@@ -39,10 +39,7 @@ var GradePassRateAnalyzer = (function () {
                     count++;
                 }
             }
-            if (count === 0) {
-                data.passrate = 0;
-            }
-            else {
+            if (count !== 0) {
                 data.passrate = pass_count * 100 / count;
             }
             callback(data);

@@ -34,7 +34,8 @@ class GradeAverageAnalyzer implements IAnalyzer {
         Exam.model
             .findById(signature.examId)
             .populate('mainTable')
-            .exec((exam) => {
+            .exec()
+            .then(exam => {
 
                 if (!exam || !exam.mainTable) return callback(data);
 
@@ -42,17 +43,15 @@ class GradeAverageAnalyzer implements IAnalyzer {
                 var count = 0;
 
                 // Average
-                for (var row in exam.mainTable.rows) {
-                    var value = row.cell[signature.subject];
+                for (var i = 0, length = exam.mainTable.rows.length; i < length; i++) {
+                    var value = exam.mainTable.rows[i].cell[signature.subject];
                     if ('number' === typeof value) {
                         sum += value;
                         count++;
                     }
                 }
 
-                if (count === 0) {
-                    data.average = 0;
-                } else {
+                if (count !== 0) {
                     data.average = sum / count;
                 }
                 callback(data);

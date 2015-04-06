@@ -20,5 +20,5 @@ interface IAnalyzer {
     /*
      * Start actual analyzing
      */
-    Exec(signature: ISignature, callback: (data: any) => void): void;
+    Exec(signature: ISignature, callback: (error:string, data: any) => void): void;
 }

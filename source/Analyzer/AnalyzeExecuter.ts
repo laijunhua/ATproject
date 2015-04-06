@@ -23,6 +23,11 @@ class AnalyzeExecuter {
     private _tasks = new Array<AnalyzeTask>();
 
 
+    constructor() {
+        this._signature = {};
+    }
+
+
     /*
      * Set a most detailed signature which will be send to each task
      */

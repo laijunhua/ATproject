@@ -35,14 +35,14 @@ var AnalyzeTask = (function () {
         AnalyzerCache.findOne(this._analyzer.Name, this._signature, function (cache) {
             // Load cache
             if (cache != null) {
-                _this._complete(cache.data);
+                _this._complete(null, cache.data);
                 return callback();
             }
             // Actually start analyzing
-            _this._analyzer.Exec(_this._signature, function (analyzedData) {
-                if (_this._analyzer.IsCacheable)
+            _this._analyzer.Exec(_this._signature, function (error, analyzedData) {
+                if (analyzedData && _this._analyzer.IsCacheable)
                     _this.cacheData(analyzedData);
-                _this._complete(analyzedData);
+                _this._complete(error, analyzedData);
                 callback();
             });
         });

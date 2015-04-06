@@ -38,10 +38,10 @@ class Login extends TotalJS.Controller {
             if (err && err.hasError()) return self.json(err);
             
             // UId
-            var expired = self.body['remember'] ?
+            var period = self.body['remember'] ?
                 <number>CONFIG('uid-period-remember') :
                 <number>CONFIG('uid-period-normal');
-            user.makeUId(expired).save();
+            user.makeUId(period).save();
 
             self.res.cookie(CONFIG('uid-cookie'), user.uId, new Date().add('year', 2), { path: '/login', httponly: true });
 

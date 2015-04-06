@@ -14,7 +14,7 @@ class Default extends TotalJS.Controller {
     view_homepage() {
         var self = this;
 
-        /*var column = new ExamTableColumnMeta.model({
+        var column = new ExamTableColumnMeta.model({
             title: 'CHINESE',
             subject: 'chinese',
             order: 0,
@@ -43,15 +43,15 @@ class Default extends TotalJS.Controller {
         exam.mainTable = table;
 
         exam.save();
-        table.save();*/
+        table.save();
 
-        var analyzer = new AnalyzeExecuter();
+        /*var analyzer = new AnalyzeExecuter();
         analyzer.setSignature({ examId: '55166d709e9399d82811513f', subject: 'chinese' });
         analyzer.addTask('grade-pass-rate').onComplete(data => {
             self.json(data);
         });
 
-        analyzer.exec();
+        analyzer.exec();*/
 
         self.json(self.session);
 

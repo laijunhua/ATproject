@@ -291,6 +291,7 @@
     <Content Include="views\login\index.html" />
     <Content Include="views\mail-forget.html" />
     <Content Include="views\layout.html" />
+    <TypeScriptCompile Include="controllers\analyzer.ts" />
     <TypeScriptCompile Include="controllers\model\exam.ts" />
     <TypeScriptCompile Include="controllers\login.ts" />
     <TypeScriptCompile Include="controllers\default.ts" />
@@ -323,7 +324,7 @@
   <ItemGroup>
     <Folder Include="controllers\" />
     <Folder Include="controllers\model\" />
-    <Folder Include="controllers\analyze\" />
+    <Folder Include="controllers\analyzer\" />
     <Folder Include="definitions\" />
     <Folder Include="models\" />
     <Folder Include="models\Exam\" />
@@ -399,7 +400,6 @@
     <Compile Include="public\js\vendor\respond.min.js" />
     <Compile Include="public\js\vendor\select2.min.js" />
     <Compile Include="public\js\vendor\server-api-example.js" />
-    <Compile Include="public\js\vendor\server.js" />
     <Compile Include="public\js\vendor\tmpl.min.js" />
     <Compile Include="public\js\view\app.js" />
     <Compile Include="public\js\view\login.js" />

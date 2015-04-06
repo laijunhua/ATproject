@@ -16,16 +16,16 @@ module $server {
      */
     export var GET = (url: string): ServerAction => {
         return new ServerAction('GET', url);
-    }; 
-    
+    };
+
 
     /*
      * HTTP POST
      */
     export var POST = (url: string): ServerAction => {
         return new ServerAction('POST', url);
-    }; 
-    
+    };
+
 
     /*
      * MODEL - CREATE
@@ -38,8 +38,8 @@ module $server {
         });
 
         return action;
-    }; 
-    
+    };
+
 
     /*
      * MODEL - READ
@@ -52,9 +52,9 @@ module $server {
         });
 
         return action;
-    }; 
-    
-    
+    };
+
+
     /*
      * MODEL - UPDATE
      */
@@ -70,9 +70,9 @@ module $server {
         });
 
         return action;
-    }; 
-    
-    
+    };
+
+
     /*
      * MODEL - DELETE
      */
@@ -88,11 +88,10 @@ module $server {
         });
 
         return action;
-    }; 
-    
-    
-    
-    /*
+    };
+
+
+/*
      * Class
      */
 
@@ -146,7 +145,7 @@ module $server {
 
 
         /*
-         * Push a form into data
+         * Push a complete document to data
          */
         document(doc: Object): ServerAction {
             this._data = doc;
@@ -204,6 +203,11 @@ module $server {
                             return reject(respond[0].error);
                         }
 
+                        // Server error
+                        if (respond['$error']) {
+                            return reject(respond['$error']);
+                        }
+
                         // prepare respond
                         if (respond instanceof Array && respond.length === 0)
                             respond = {};
@@ -215,7 +219,7 @@ module $server {
                             if (validate) return reject(validate);
                         }
 
-                        // fullfill
+                        // fulfill
                         resolve(body);
 
                     })

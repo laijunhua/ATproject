@@ -9,7 +9,7 @@ class AnalyzeTask {
 
     private _analyzer: IAnalyzer;
     private _signature: ISignature;
-    private _complete: (data: any) => void;
+    private _complete: (error: string, data: Object) => void;
 
 
     constructor(analyzer: IAnalyzer, signature: ISignature) {
@@ -39,7 +39,8 @@ class AnalyzeTask {
     /*
      * Callback when finished analyzing
      */
-    onComplete(callback: (data: any) => void) { this._complete = callback; }
+    onComplete(callback: (error:string, data: Object) => void) { this._complete = callback; }
+
 
 
     /*
@@ -50,20 +51,22 @@ class AnalyzeTask {
         AnalyzerCache.findOne(this._analyzer.Name, this._signature,(cache: IAnalyzerCache) => {
             // Load cache
             if (cache != null) {
-                this._complete(cache.data);
+                this._complete(null, cache.data);
                 return callback();
             }
 
             // Actually start analyzing
-            this._analyzer.Exec(this._signature, (analyzedData) => {
-                if (this._analyzer.IsCacheable)
+            this._analyzer.Exec(this._signature, (error, analyzedData) => {
+                if (analyzedData &&
+                    this._analyzer.IsCacheable)
                     this.cacheData(analyzedData);
-                this._complete(analyzedData);
+                this._complete(error ,analyzedData);
                 callback();
             });
 
         });
     }
+
 
     /*
      * Push data to cache database

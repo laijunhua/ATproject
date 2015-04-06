@@ -43,10 +43,7 @@ var ClassAverageAnalyzer = (function () {
                     count++;
                 }
             }
-            if (count === 0) {
-                data.average = 0;
-            }
-            else {
+            if (count !== 0) {
                 data.average = sum / count;
             }
             callback(data);

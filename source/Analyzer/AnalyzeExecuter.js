@@ -5,6 +5,7 @@ var AnalyzeTask = require('./AnalyzeTask');
 var AnalyzeExecuter = (function () {
     function AnalyzeExecuter() {
         this._tasks = new Array();
+        this._signature = {};
     }
     /*
      * Register a analyzer constructor

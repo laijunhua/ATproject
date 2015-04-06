@@ -25,22 +25,19 @@ var GradeAverageAnalyzer = (function () {
     GradeAverageAnalyzer.prototype.Exec = function (signature, callback) {
         var data = new GradeAverageData();
         // Table
-        Exam.model.findById(signature.examId).populate('mainTable').exec(function (exam) {
+        Exam.model.findById(signature.examId).populate('mainTable').exec().then(function (exam) {
             if (!exam || !exam.mainTable)
                 return callback(data);
             var sum = 0;
             var count = 0;
-            for (var row in exam.mainTable.rows) {
-                var value = row.cell[signature.subject];
+            for (var i = 0, length = exam.mainTable.rows.length; i < length; i++) {
+                var value = exam.mainTable.rows[i].cell[signature.subject];
                 if ('number' === typeof value) {
                     sum += value;
                     count++;
                 }
             }
-            if (count === 0) {
-                data.average = 0;
-            }
-            else {
+            if (count !== 0) {
                 data.average = sum / count;
             }
             callback(data);

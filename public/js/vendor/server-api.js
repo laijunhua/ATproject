@@ -66,8 +66,8 @@ var $server;
         return action;
     };
     /*
-     * Class
-     */
+         * Class
+         */
     /*
      * Server Requset Action
      */
@@ -99,7 +99,7 @@ var $server;
             return this;
         };
         /*
-         * Push a form into data
+         * Push a complete document to data
          */
         ServerAction.prototype.document = function (doc) {
             this._data = doc;
@@ -146,6 +146,10 @@ var $server;
                     if (respond instanceof Array && respond.length > 0) {
                         return reject(respond[0].error);
                     }
+                    // Server error
+                    if (respond['$error']) {
+                        return reject(respond['$error']);
+                    }
                     // prepare respond
                     if (respond instanceof Array && respond.length === 0)
                         respond = {};
@@ -156,7 +160,7 @@ var $server;
                         if (validate)
                             return reject(validate);
                     }
-                    // fullfill
+                    // fulfill
                     resolve(body);
                 }).fail(function () {
                     // network error
