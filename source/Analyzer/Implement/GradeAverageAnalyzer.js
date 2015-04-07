@@ -1,6 +1,4 @@
 var Exam = require('../../../models/Exam/Exam');
-var log4js = require('log4js');
-var logger = log4js.getLogger('analyzer/GradeAverageAnalyzer');
 /*
  * Average mark of a subject in one exam
  */
@@ -27,7 +25,7 @@ var GradeAverageAnalyzer = (function () {
         // Table
         Exam.model.findById(signature.examId).populate('mainTable').exec().then(function (exam) {
             if (!exam || !exam.mainTable)
-                return callback(data);
+                return callback('Cannot find exam table ' + signature.examId, null);
             var sum = 0;
             var count = 0;
             for (var i = 0, length = exam.mainTable.rows.length; i < length; i++) {
@@ -40,8 +38,10 @@ var GradeAverageAnalyzer = (function () {
             if (count !== 0) {
                 data.average = sum / count;
             }
-            callback(data);
-        }).then(null, logger.error);
+            callback(null, data);
+        }).then(null, (function (error) {
+            callback(error.message, null);
+        }));
     };
     return GradeAverageAnalyzer;
 })();

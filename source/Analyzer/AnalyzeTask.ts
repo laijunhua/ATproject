@@ -39,16 +39,15 @@ class AnalyzeTask {
     /*
      * Callback when finished analyzing
      */
-    onComplete(callback: (error:string, data: Object) => void) { this._complete = callback; }
+    onComplete(callback: (error: string, data: Object) => void) { this._complete = callback; }
 
 
-
-    /*
+/*
      * Load cache or start analyzing
      */
     exec(callback: () => void) {
 
-        AnalyzerCache.findOne(this._analyzer.Name, this._signature,(cache: IAnalyzerCache) => {
+        AnalyzerCache.findOne(this._analyzer.Name, this._signature, (cache: IAnalyzerCache) => {
             // Load cache
             if (cache != null) {
                 this._complete(null, cache.data);
@@ -60,10 +59,9 @@ class AnalyzeTask {
                 if (analyzedData &&
                     this._analyzer.IsCacheable)
                     this.cacheData(analyzedData);
-                this._complete(error ,analyzedData);
+                this._complete(error, analyzedData);
                 callback();
             });
-
         });
     }
 

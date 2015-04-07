@@ -28,8 +28,8 @@ var AnalyzeTask = (function () {
         this._complete = callback;
     };
     /*
-     * Load cache or start analyzing
-     */
+         * Load cache or start analyzing
+         */
     AnalyzeTask.prototype.exec = function (callback) {
         var _this = this;
         AnalyzerCache.findOne(this._analyzer.Name, this._signature, function (cache) {

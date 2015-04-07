@@ -285,8 +285,8 @@
     <Content Include="public\image\youtube.png" />
     <Content Include="public\robots.txt" />
     <Content Include="resources\default.resource" />
+    <Content Include="run-debug.bat" />
     <Content Include="run-release.bat" />
-    <Content Include="run.bat" />
     <Content Include="views\homepage.html" />
     <Content Include="views\login\index.html" />
     <Content Include="views\mail-forget.html" />
@@ -324,7 +324,6 @@
   <ItemGroup>
     <Folder Include="controllers\" />
     <Folder Include="controllers\model\" />
-    <Folder Include="controllers\analyzer\" />
     <Folder Include="definitions\" />
     <Folder Include="models\" />
     <Folder Include="models\Exam\" />
@@ -359,6 +358,7 @@
     <Compile Include="debug.js" />
     <Compile Include="definitions\authorization.js" />
     <Compile Include="definitions\compile.js" />
+    <Compile Include="definitions\framework.js" />
     <Compile Include="definitions\initialize.js" />
     <Compile Include="definitions\log4js.js" />
     <Compile Include="definitions\mongoose.js" />

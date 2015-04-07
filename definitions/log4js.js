@@ -7,4 +7,4 @@ Interface to log4js logger
 */
 
 var log4js = require('.\\log4js');
-log4js.configure(".\\log4js.json");
+log4js.configure('.\\log4js.json');

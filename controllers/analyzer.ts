@@ -18,7 +18,11 @@ class InputExam extends TotalJS.Controller {
         try {
             var analyzer = new AnalyzeExecuter();
             analyzer.setSignature(self.query);
-            analyzer.addTask(analyzerName).onComplete((data) => self.json({ '$document': data }));
+            analyzer.addTask(analyzerName).onComplete((error, data) => {
+                if (error)
+                    return self.json({ '$error': error });
+                self.json({ '$document': data });
+            });
             analyzer.exec();
 
         } catch (e) {

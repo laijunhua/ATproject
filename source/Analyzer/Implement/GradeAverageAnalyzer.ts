@@ -1,8 +1,5 @@
 ﻿import Exam = require('../../../models/Exam/Exam');
 
-import log4js = require('log4js');
-var logger = log4js.getLogger('analyzer/GradeAverageAnalyzer');
-
 
 /*
  * Average mark of a subject in one exam
@@ -27,7 +24,7 @@ class GradeAverageAnalyzer implements IAnalyzer {
     /*
      * Start actual analyzing
      */
-    Exec(signature: ISignature, callback: (data: any) => void) {
+    Exec(signature: ISignature, callback: (error: string, data: any) => void) {
         var data = new GradeAverageData();
 
         // Table
@@ -37,7 +34,7 @@ class GradeAverageAnalyzer implements IAnalyzer {
             .exec()
             .then(exam => {
 
-                if (!exam || !exam.mainTable) return callback(data);
+                if (!exam || !exam.mainTable) return callback('Cannot find exam table ' + signature.examId, null);
 
                 var sum = 0;
                 var count = 0;
@@ -54,10 +51,12 @@ class GradeAverageAnalyzer implements IAnalyzer {
                 if (count !== 0) {
                     data.average = sum / count;
                 }
-                callback(data);
+                callback(null, data);
 
             })
-            .then(null, logger.error);
+            .then(null, (error => {
+                callback(error.message, null);
+            }));
     }
 }
 

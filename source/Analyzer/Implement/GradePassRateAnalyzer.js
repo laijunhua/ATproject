@@ -1,6 +1,4 @@
 var Exam = require('../../../models/Exam/Exam');
-var log4js = require('log4js');
-var logger = log4js.getLogger('analyzer/GradeAverageAnalyzer');
 /*
  * 合格率
  */
@@ -27,7 +25,7 @@ var GradePassRateAnalyzer = (function () {
         // Table
         Exam.model.findById(signature.examId).populate('mainTable').exec().then(function (exam) {
             if (!exam || !exam.mainTable)
-                return callback(data);
+                return callback('Cannot find table of exam ' + signature.examId, null);
             var passmark = exam.mainTable.findColumnBySubject(signature.subject).passmark;
             var pass_count = 0;
             var count = 0;
@@ -42,8 +40,10 @@ var GradePassRateAnalyzer = (function () {
             if (count !== 0) {
                 data.passrate = pass_count * 100 / count;
             }
-            callback(data);
-        }).then(null, logger.error);
+            callback(null, data);
+        }).then(null, (function (error) {
+            callback(error.message, null);
+        }));
     };
     return GradePassRateAnalyzer;
 })();

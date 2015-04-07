@@ -1,8 +1,5 @@
 ﻿import Exam = require('../../../models/Exam/Exam');
 
-import log4js = require('log4js');
-var logger = log4js.getLogger('analyzer/GradeAverageAnalyzer');
-
 
 /*
  * 合格率
@@ -27,7 +24,7 @@ class GradePassRateAnalyzer implements IAnalyzer {
     /*
      * Start actual analyzing
      */
-    Exec(signature: ISignature, callback: (data: any) => void) {
+    Exec(signature: ISignature, callback: (error: string, data: any) => void) {
         var data = new GradePassRateData();
 
         // Table
@@ -37,7 +34,7 @@ class GradePassRateAnalyzer implements IAnalyzer {
             .exec()
             .then(exam => {
 
-                if (!exam || !exam.mainTable) return callback(data);
+                if (!exam || !exam.mainTable) return callback('Cannot find table of exam ' + signature.examId, null);
 
                 var passmark = exam.mainTable.findColumnBySubject(signature.subject).passmark;
                 var pass_count = 0;
@@ -55,10 +52,12 @@ class GradePassRateAnalyzer implements IAnalyzer {
                 if (count !== 0) {
                     data.passrate = pass_count * 100 / count;
                 }
-                callback(data);
+                callback(null, data);
 
             })
-            .then(null, logger.error);
+            .then(null, (error => {
+                callback(error.message, null);
+            }));
     }
 }
 

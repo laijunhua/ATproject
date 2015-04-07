@@ -23,7 +23,11 @@ var InputExam = (function (_super) {
         try {
             var analyzer = new AnalyzeExecuter();
             analyzer.setSignature(self.query);
-            analyzer.addTask(analyzerName).onComplete(function (data) { return self.json({ '$document': data }); });
+            analyzer.addTask(analyzerName).onComplete(function (error, data) {
+                if (error)
+                    return self.json({ '$error': error });
+                self.json({ '$document': data });
+            });
             analyzer.exec();
         }
         catch (e) {
